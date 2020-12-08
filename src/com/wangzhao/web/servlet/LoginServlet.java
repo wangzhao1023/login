@@ -33,14 +33,12 @@ public class LoginServlet extends HttpServlet {
 
         //对2,3步骤进行简化
 
-        Map<String, String[]> parameterMap = req.getParameterMap();
-        User loginUser = new User();
-        try {
-            BeanUtils.populate(loginUser,parameterMap);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            Map<String, String[]> parameterMap = req.getParameterMap();
+            User loginUser = new User();
+            try {
+                BeanUtils.populate(loginUser,parameterMap);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
         }
 
         //4调用login方法
